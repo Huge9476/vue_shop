@@ -7,10 +7,10 @@
       <el-form ref="loginFormRef" :model="loginForm" :rules="loginFormRules"
                label-width="70px" class="login_form" >
         <el-form-item label="账  号" prop="username">
-          <el-input v-model="loginForm.username" class="login_input" prefix-icon="el-icon-user-solid" />
+          <el-input v-model="loginForm.username" prefix-icon="iconfont icon-user" class="login_input"/>
         </el-form-item>
         <el-form-item label="密  码" prop="password">
-          <el-input v-model="loginForm.password" prefix-icon="el-icon-s-goods" type="password" />
+          <el-input v-model="loginForm.password" prefix-icon="iconfont icon-3702mima" type="password"/>
         </el-form-item>
         <el-form-item class="btn">
           <el-button type="primary" round @click="login">登  录</el-button>
@@ -57,6 +57,7 @@ export default {
         // 登录成功，保存token，跳到首页
         console.log(res)
         window.sessionStorage.setItem('token', res.data.token);
+        window.sessionStorage.setItem('username', this.loginForm.username)
         await this.$router.push('/home')
       })
     }
@@ -74,13 +75,13 @@ export default {
   .login_box{
     height: 350px;
     width: 500px;
-    background-color: #ffffff;
+    background-color: #E4E7ED;
     border-radius: 3px;
     padding: 3px;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-48%, -52%);
+    transform: translate(-48%, -55%);
   }
   .login_form{
     position: absolute;
